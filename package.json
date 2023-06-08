@@ -1,6 +1,6 @@
 {
   "name": "remark-order-reference-links",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Remark plugin to order reference links",
   "main": "index.js",
   "type": "module",
