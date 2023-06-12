@@ -2,15 +2,6 @@
   "name": "remark-order-reference-links",
   "version": "0.0.1",
   "description": "Remark plugin to order reference links",
-  "type": "module",
-  "homepage": "https://github.com/webpro/remark-order-reference-links",
-  "repository": "github:webpro/remark-order-reference-links",
-  "bugs": "https://github.com/webpro/remark-order-reference-links/issues",
-  "license": "ISC",
-  "author": {
-    "name": "Lars Kappert",
-    "email": "lars@webpro.nl"
-  },
   "keywords": [
     "unified",
     "remark",
@@ -22,6 +13,15 @@
     "reference",
     "definition"
   ],
+  "homepage": "https://github.com/webpro/remark-order-reference-links",
+  "bugs": "https://github.com/webpro/remark-order-reference-links/issues",
+  "repository": "github:webpro/remark-order-reference-links",
+  "license": "ISC",
+  "author": {
+    "name": "Lars Kappert",
+    "email": "lars@webpro.nl"
+  },
+  "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
