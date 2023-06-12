@@ -2,7 +2,6 @@
   "name": "remark-order-reference-links",
   "version": "0.0.1",
   "description": "Remark plugin to order reference links",
-  "main": "index.js",
   "type": "module",
   "homepage": "https://github.com/webpro/remark-order-reference-links",
   "repository": "github:webpro/remark-order-reference-links",
@@ -23,9 +22,22 @@
     "reference",
     "definition"
   ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "tsc"
+  },
   "dependencies": {
     "unist-util-is": "^5.2.1",
     "unist-util-remove": "^3.1.1",
     "unist-util-visit": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/mdast": "^3.0.11",
+    "typescript": "^5.1.3"
   }
 }
