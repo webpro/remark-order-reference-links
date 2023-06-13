@@ -29,7 +29,9 @@
   ],
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "tsc"
+    "prepublishOnly": "tsc",
+    "pretest": "npm run build",
+    "test": "node --test"
   },
   "dependencies": {
     "unist-util-is": "^5.2.1",
@@ -38,6 +40,7 @@
   },
   "devDependencies": {
     "@types/mdast": "^3.0.11",
+    "remark": "^14.0.3",
     "typescript": "^5.1.3"
   }
 }
