@@ -3,7 +3,7 @@ import { is } from 'unist-util-is';
 import { remove } from 'unist-util-remove';
 import type { Root, Definition, ImageReference, LinkReference } from 'mdast';
 
-const isNum = (value: string) => isNaN(Number(value));
+const _isNaN = (value: string) => isNaN(Number(value));
 
 function orderDefinitions() {
   return transformer;
@@ -28,7 +28,7 @@ function transformer(tree: Root) {
         ref.identifier = reusableDef.identifier;
         ref.label = reusableDef.identifier;
       } else {
-        const identifier = !isNum(ref.identifier) ? ref.identifier : String(++id);
+        const identifier = _isNaN(ref.identifier) ? ref.identifier : String(++id);
         ref.identifier = identifier;
         ref.label = identifier;
         store.push({
@@ -50,9 +50,9 @@ function transformer(tree: Root) {
 }
 
 function definitionSorter(a: Definition, b: Definition) {
-  if (!isNum(a.identifier) && isNum(b.identifier)) return 1;
-  if (isNum(a.identifier) && !isNum(b.identifier)) return -1;
-  if (isNum(b.identifier) && isNum(a.identifier)) return Number(a.identifier) - Number(b.identifier);
+  if (_isNaN(a.identifier) && !_isNaN(b.identifier)) return 1;
+  if (!_isNaN(a.identifier) && _isNaN(b.identifier)) return -1;
+  if (!_isNaN(b.identifier) && !_isNaN(a.identifier)) return Number(a.identifier) - Number(b.identifier);
   return a.identifier.localeCompare(b.identifier);
 }
 
