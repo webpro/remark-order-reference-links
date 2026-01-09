@@ -8,6 +8,8 @@
     "remark-plugin",
     "plugin",
     "markdown",
+    "order",
+    "sort",
     "link",
     "image",
     "reference",
@@ -22,6 +24,9 @@
     "email": "lars@webpro.nl"
   },
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -34,13 +39,12 @@
     "test": "node --test"
   },
   "dependencies": {
-    "unist-util-is": "^5.2.1",
-    "unist-util-remove": "^3.1.1",
-    "unist-util-visit": "^4.1.2"
+    "@types/mdast": "^4.0.4",
+    "unist-util-remove": "^4.0.0",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@types/mdast": "^3.0.11",
-    "remark": "^14.0.3",
+    "remark": "^15.0.1",
     "typescript": "^5.1.3"
   }
 }
