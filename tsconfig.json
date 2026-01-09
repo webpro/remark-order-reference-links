@@ -3,6 +3,7 @@
   "exclude": ["node_modules/"],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "declaration": true,
     "lib": ["es2020"],
     "module": "es2020",
     "moduleResolution": "node",
