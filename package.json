@@ -1,6 +1,6 @@
 {
   "name": "remark-order-reference-links",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Remark plugin to order reference links",
   "keywords": [
     "unified",
