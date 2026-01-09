@@ -1,5 +1,4 @@
 import { visit } from 'unist-util-visit';
-import { is } from 'unist-util-is';
 import { remove } from 'unist-util-remove';
 import type { Root, Definition, ImageReference, LinkReference } from 'mdast';
 
@@ -16,8 +15,8 @@ function transformer(tree: Root) {
   const store: Definition[] = [];
 
   visit(tree, ['linkReference', 'imageReference', 'definition'], node => {
-    if (is<LinkReference | ImageReference>(node, ['linkReference', 'imageReference'])) refs.push(node);
-    if (is<Definition>(node, 'definition')) defs.push(node);
+    if (node.type === 'linkReference' || node.type === 'imageReference') refs.push(node);
+    if (node.type === 'definition') defs.push(node);
   });
 
   refs.forEach(ref => {
