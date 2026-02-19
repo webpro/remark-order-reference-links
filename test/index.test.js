@@ -58,3 +58,29 @@ first and [named references][named] last.
 
   assert.equal(actual, expected);
 });
+
+test('should encode square brackets in definition URLs and deduplicate', () => {
+  const input = `Catch-all route at [src/pages/\\[...slug\\].astro][1] uses [adapters][2].
+
+Also see [catch-all][3].
+
+[1]: src/pages/[...slug].astro
+
+[2]: ../cms/src
+
+[3]: src/pages/[...slug].astro
+`;
+
+  const actual = remark().use(orderDefinitions).processSync(input).toString();
+
+  const expected = `Catch-all route at [src/pages/\\[...slug\\].astro][1] uses [adapters][2].
+
+Also see [catch-all][1].
+
+[1]: src/pages/%5B...slug%5D.astro
+
+[2]: ../cms/src
+`;
+
+  assert.equal(actual, expected);
+});

@@ -3,6 +3,7 @@ import { remove } from 'unist-util-remove';
 import type { Root, Definition, ImageReference, LinkReference } from 'mdast';
 
 const _isNaN = (value: string) => isNaN(Number(value));
+const encodeBrackets = (value: string) => value.replace(/\[/g, '%5B').replace(/]/g, '%5D');
 
 function orderDefinitions() {
   return transformer;
@@ -22,7 +23,8 @@ function transformer(tree: Root) {
   refs.forEach(ref => {
     const def = defs.find(d => d.identifier === ref.identifier);
     if (def) {
-      const reusableDef = store.find(d => d.url === def.url);
+      const url = encodeBrackets(def.url);
+      const reusableDef = store.find(d => d.url === url);
       if (reusableDef) {
         ref.identifier = reusableDef.identifier;
         ref.label = reusableDef.identifier;
@@ -33,7 +35,7 @@ function transformer(tree: Root) {
         store.push({
           type: 'definition',
           title: def.title,
-          url: def.url,
+          url,
           identifier,
           label: identifier
         });
