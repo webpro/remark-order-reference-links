@@ -50,11 +50,8 @@ function transformer(tree: Root) {
   });
 }
 
-function definitionSorter(a: Definition, b: Definition) {
-  if (_isNaN(a.identifier) && !_isNaN(b.identifier)) return 1;
-  if (!_isNaN(a.identifier) && _isNaN(b.identifier)) return -1;
-  if (!_isNaN(b.identifier) && !_isNaN(a.identifier)) return Number(a.identifier) - Number(b.identifier);
-  return a.identifier.localeCompare(b.identifier);
+function definitionSorter({ identifier: a }: Definition, { identifier: b }: Definition) {
+  return Number(!isNaN(+b)) - Number(!isNaN(+a)) || +a - +b || a.localeCompare(b);
 }
 
 export default orderDefinitions;
