@@ -5,9 +5,9 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "lib": ["es2020"],
-    "module": "es2020",
-    "moduleResolution": "node",
+    "module": "nodenext",
     "outDir": "lib",
+    "rootDir": "src",
     "skipLibCheck": true,
     "strict": true,
     "target": "es2020"
